@@ -11,7 +11,7 @@ func TestInsertAtHead(t *testing.T) {
 
 	llTest := list.Slinkedlist{Head: nil, Tail: nil}
 
-	list.InsertAtEnd(&llTest, value)
+	list.Append(&llTest, value)
 
 	expected := value
 

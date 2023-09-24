@@ -10,30 +10,26 @@ type Slinkedlist struct {
 	Tail *link
 }
 
-func InsertAtEnd(ll *Slinkedlist, value string) {
+func Append(ll *Slinkedlist, value string) {
 	l := &link{Value: value, Next: nil}
 
-	if ll.Head == nil {
-		ll.Head = l
-	}
 	if ll.Tail == nil {
 		ll.Tail = l
+		ll.Head = l
 	} else {
-		ll.Tail.Next = &link{Value: value, Next: nil}
+		ll.Tail.Next = l
 		ll.Tail = ll.Tail.Next
 	}
 }
 
-func InsertAtHead(ll *Slinkedlist, value string) {
-	l := &link{Value: value, Next: nil}
+func Prepend(ll *Slinkedlist, value string) {
+	l := &link{Value: value, Next: ll.Head}
 
-	if ll.Tail == nil {
-		ll.Tail = l
-	}
 	if ll.Head == nil {
+		ll.Tail = l
 		ll.Head = l
 	} else {
-		ll.Head = &link{Value: value, Next: ll.Head}
+		ll.Head = l
 	}
 }
 
